@@ -1,0 +1,41 @@
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#ffe45c; --ink:#1c1b22; --card:#ffffff; --pink:#ff5fa8; --blue:#3b5bff; --muted:#4a4858;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#1c1b22;--ink:#fff6d6;--card:#2a2833;--pink:#ff7ab8;--blue:#7d93ff;--muted:#c9c4d8}
+}
+:root[data-theme="dark"]{--bg:#1c1b22;--ink:#fff6d6;--card:#2a2833;--pink:#ff7ab8;--blue:#7d93ff;--muted:#c9c4d8}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-size:18px;line-height:1.55;overflow-x:hidden}
+main{max-width:34rem;margin:0 auto;padding:2rem 1.3rem 4rem}
+h1{font-family:"Bagel Fat One","Arial Rounded MT Bold",Impact,sans-serif;font-weight:400;font-size:clamp(2.8rem,13vw,4.6rem);line-height:1;margin:0 0 .8rem;transform:rotate(-2deg)}
+h2{font-family:"Bagel Fat One","Arial Rounded MT Bold",Impact,sans-serif;font-weight:400;font-size:1.7rem;margin:3rem 0 .8rem}
+.sub{font-size:1.15rem;margin:0 0 1.6rem}
+.card{background:var(--card);border:3px solid var(--ink);border-radius:16px;padding:1.1rem 1.2rem;box-shadow:6px 6px 0 var(--ink)}
+.bar{height:26px;border:3px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--card)}
+.bar i{display:block;height:100%;width:0;background:var(--pink);transition:width .25s}
+#status{margin:.6rem 0 0;font-weight:700}
+.charges{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
+.charges li{padding-left:2rem;position:relative}
+.charges li::before{content:"✗";position:absolute;left:0;font-weight:700;color:var(--pink)}
+.menu{display:flex;flex-wrap:wrap;gap:.6rem}
+button{font:inherit;font-weight:700;color:var(--ink);background:var(--card);border:3px solid var(--ink);border-radius:999px;padding:.6rem 1.1rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+button[aria-pressed="true"]{background:var(--blue);color:#fff}
+button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+#gift{margin:.9rem 0 0;font-weight:700;min-height:3rem}
+.arena{position:relative;height:190px;margin-top:.5rem}
+.arena button{position:absolute;top:20px;font-size:1.15rem;padding:.8rem 1.4rem}
+#yes{left:0;background:var(--pink);color:#111}
+#no{right:0;transition:left .18s,top .18s}
+#end{font-family:"Bagel Fat One","Arial Rounded MT Bold",Impact,sans-serif;font-size:1.6rem;margin:.5rem 0 0;line-height:1.2}
+.bit{position:fixed;top:-2rem;font-size:1.8rem;pointer-events:none;animation:fall 2.4s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.bit{animation:none;top:30%}#no{transition:none}}
+.promise{background:var(--card);border:3px dashed var(--ink);border-radius:16px;padding:1.2rem 1.2rem 1rem}
+.promise p{margin:0 0 .8rem}
+.sign{min-height:2.6rem;font-family:"Bagel Fat One","Arial Rounded MT Bold",Impact,sans-serif;font-size:1.5rem;color:var(--blue);transform:rotate(-3deg);margin:.4rem 0 .8rem}
+small{color:var(--muted)}
